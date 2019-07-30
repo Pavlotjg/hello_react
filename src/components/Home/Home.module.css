@@ -1,0 +1,17 @@
+.homeMain{
+    float: left;
+}
+.imageWidth{
+    width: 400px;
+    float: left;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-top: 15px;
+    border-radius: 30%;
+}
+
+.homeText{
+    font-size: 25px;
+    padding: 15px;
+    text-align: justify;
+}

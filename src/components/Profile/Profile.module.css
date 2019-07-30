@@ -1,0 +1,21 @@
+.mainWindowProfile{
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.inputAll{
+    margin-bottom: 5px;
+
+}
+.inputFirstName{
+    margin-left: 20px;
+}
+.inputLastName{
+    margin-left: 22px;
+}
+.inputEmail{
+    margin-left: 57px;
+}
+.inputTel{
+    margin-left: 76px;
+}

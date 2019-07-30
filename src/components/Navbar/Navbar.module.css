@@ -1,0 +1,12 @@
+.mainNavbar{
+    background-color: aquamarine;
+    width: 15%;
+    float: left;
+    height: 1000px;
+    font-size: 23px;
+}
+
+.navLinks{
+    margin-left: 10px;
+    margin-top: 5px;
+}
