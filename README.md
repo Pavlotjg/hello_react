@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## NOTE:
+
+Make sure You've run related back-end repository https://github.com/Pavlotjg/backend-for-my-react
+
 ## Available Scripts
 
 Before You run the project don't forget to download dependencies
