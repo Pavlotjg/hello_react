@@ -7,6 +7,12 @@
     margin-bottom: 5px;
 
 }
-.inputFirstName{
-    margin-left: 32px;
+.inputCardNumber{
+    margin-left: 5px;
+}
+.inputCVV{
+    margin-left: 78px;
+}
+.inputFullName{
+    margin-left: 36px;
 }

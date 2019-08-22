@@ -1,4 +1,15 @@
-$test: orange;
-body {
-  background-color: $test;
+@mixin hello ($property){
+  -font: $property;
+  -size: $property;
 }
+
+$atata: 38c;
+$x: 10;
+
+.atata {
+  color: ('#c65' + $atata);
+  height: 80% + $x;
+}
+
+.sidebar {@include hello(15);}
+

@@ -1,5 +1,5 @@
 .mainHeader{
-    background-color: aqua;
+    background-color: cornflowerblue;
 }
 .mainHeader:before, .mainHeader:after {
     display: table;

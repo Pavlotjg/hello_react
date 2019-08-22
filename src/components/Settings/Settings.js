@@ -58,11 +58,11 @@ class Settings extends React.Component {
     return (
       <div className={s.mainWindowProfile}>
         <div className={s.inputAll}>
-          Card's number: <input name='number' value={number} type='text' className={s.inputFirstName}
+          Card's number: <input name='number' value={number} type='text' className={s.inputCardNumber}
                                 onChange={this.fullfillSettingData}/>
         </div>
         <div className={s.inputAll}>
-          CVV: <input name='cvv' value={cvv} type='text'
+          CVV: <input name='cvv' value={cvv} type='text' className={s.inputCVV}
                       onChange={this.fullfillSettingData}/>
         </div>
         <div className={s.inputAll}>
@@ -70,7 +70,7 @@ class Settings extends React.Component {
                                   onChange={this.fullfillSettingData}/>
         </div>
         <div className={s.inputAll}>
-          Full Name: <input name='fullName' value={fullName} type='text'
+          Full Name: <input name='fullName' value={fullName} type='text' className={s.inputFullName}
                             onChange={this.fullfillSettingData}/>
         </div>
         <div>

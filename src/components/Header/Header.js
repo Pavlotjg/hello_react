@@ -2,9 +2,10 @@ import React from 'react';
 import s from './Header.module.css';
 import {getCurrentUser, saveUser} from '../../api/User';
 
+
 const userZdarova = {
-    name: 'Milinka',
-    lastName: 'TrampenkO',
+    name: 'John',
+    lastName: 'Johnson',
     /*isOnline: false*/
 };
 
@@ -27,7 +28,7 @@ class Header extends React.Component {
                 /*const isOnline = this.state.isOnline;*/
 
                 resolve(fullName, /*isOnline*/);
-            }, 0);
+            }, 1000);
         })
     }
 
@@ -59,7 +60,7 @@ class Header extends React.Component {
                          alt=""/>
                 </div>
                 <div className={s.headerTextSpace}>
-                    <h3> Zdarova: { fullName || 'Loading...' } </h3>
+                    <h3> Welcome: { fullName || 'Loading...' } </h3>
                 </div>
                 <div className={s.headerBalansAndAvaSpace}>
                     <div className={s.headerBalans}>

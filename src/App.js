@@ -11,6 +11,7 @@ import {getCurrentUser} from "./api/User";
 import {createMusicAlbum, getCreditData, getMusicAlbum} from "./api/database";
 import Music from "./components/Music/Music";
 
+
 class App extends React.Component {
     constructor(props){
         super(props);
