@@ -1,0 +1,23 @@
+.mainWindowProfile{
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.inputAll{
+    margin-bottom: 5px;
+
+}
+
+.deleteButton{
+    margin-left: 3px;
+    border-radius: 50%;
+    color: white;
+    background-color: red;
+}
+
+.somethingFirst{
+    margin-left: 22px;
+}
+.somethingThird{
+    margin-left: 15.5px;
+}

@@ -17,11 +17,10 @@ const Navbar = () => {
           <div className={s.navLinks}>
               <NavLink to="/music"> Music</NavLink>
           </div>
+          <div className={s.navLinks}>
+            <NavLink to="/reduxpage"> ReduxPage</NavLink>
+          </div>
         </div>
-
-
-
-
     )
 };
 
