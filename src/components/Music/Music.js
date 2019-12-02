@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './Music.module.css';
+import '../../App.scss';
 import {createMusicAlbum, deleteMusicAlbum, saveMusicAlbum} from "../../api/database";
 
 
@@ -79,7 +79,7 @@ class Music extends React.Component {
       return (
         <div key={index}>
           Album: <input type="text" name={index} value={elem.title} onChange={this.fullfillState}/>
-          <button className={s.deleteButton} name={index} onClick={this.deleteAlbum}>X</button>
+          <button  className='musicDeleteButton' name={index} onClick={this.deleteAlbum}>X</button>
         </div>
       )
     });
@@ -88,16 +88,22 @@ class Music extends React.Component {
 
   render() {
     return (
-      <div className={s.mainWindowProfile}>
-        <div className={s.inputAll}>
+      <div className='main-Grid-Music'>
+        <div >
           {this.renderInputs()}
         </div>
         <div>
-          <button onClick={this.addAlbum}>Add+</button>
+          <button  className='musicSaveButton' onClick={this.addAlbum}>Add+</button>
         </div>
         <div>
-          <button onClick={this.saveNewAlbumsMethod}>Save</button>
+          <button  className='musicSaveButton' onClick={this.saveNewAlbumsMethod}>Save</button>
         </div>
+        <div className='musicVideoContainer'>
+          <iframe src="https://www.youtube.com/embed/BCPiBWrIaSI" allowFullScreen='allowFullScreen'
+                 frameBorder='0' >
+          </iframe>
+        </div>
+
       </div>
     )
   }

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import s from "../ReduxPage/ReduxPage.module.css";
+import '../../App.scss';
 import {connect} from "react-redux";
 import { actionChangeFirstValue, actionChangeSecondValue, actionChangeThirdValue } from './Actions and reducers/actions'
 
@@ -13,23 +13,30 @@ class ReduxPage extends Component {
     const { firstValue, secondValue, thirdValue, changeFirstValue, changeSecondValue, changeThirdValue} = this.props;
     console.log(this.props);
     return (
-      <div className={s.mainWindowProfile}>
-        <div className={s.inputAll}>
-          Something First: <input type="text"
-                                  value={firstValue}
-                                  className={s.somethingFirst}
-                                  onChange={changeFirstValue}/>
+      <div className='main-Grid-ReduxPage'>
+        <div >
+          Something First:
+          <div>
+            <input type="text"
+                   value={firstValue}
+                   onChange={changeFirstValue}/>
+          </div>
         </div>
-        <div className={s.inputAll}>
-          Something Second: <input type="text"
-                                   value={secondValue}
-                                   onChange={changeSecondValue}/>
+        <div >
+          Something Second:
+          <div>
+            <input type="text"
+                   value={secondValue}
+                   onChange={changeSecondValue}/>
+          </div>
         </div>
-        <div className={s.inputAll}>
-          Something Third: <input type="text"
-                                  value={thirdValue}
-                                  className={s.somethingThird}
-                                  onChange={changeThirdValue}/>
+        <div >
+          Something Third:
+          <div>
+            <input type="text"
+                   value={thirdValue}
+                   onChange={changeThirdValue}/>
+          </div>
         </div>
         <div> {`${firstValue} ${secondValue} ${thirdValue}`}</div>
       </div>

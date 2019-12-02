@@ -3,8 +3,8 @@ import { myReducer } from '../components/ReduxPage/Actions and reducers/reducers
 
  export const initialState = {
   x: 10,
-  name: 'Albert',
-  lastName: 'Cheekido',
+  name: 'Darth',
+  lastName: 'Vader',
   reduxObject: {
     red: '1',
     blue: '2',
