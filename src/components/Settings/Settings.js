@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './Settings.module.css'
+import '../../App.scss';
 import {saveCreditData} from "../../api/database";
 
 class Settings extends React.Component {
@@ -56,25 +56,39 @@ class Settings extends React.Component {
     const {number, cvv, expirationDate, fullName} = this.state.creditCard || {};
 
     return (
-      <div className={s.mainWindowProfile}>
-        <div className={s.inputAll}>
-          Card's number: <input name='number' value={number} type='text' className={s.inputCardNumber}
-                                onChange={this.fullfillSettingData}/>
+      <div className='main-Grid-Settings'>
+        <div >
+          Card's number:
+          <div>
+            <input name='number' value={number} type='text'
+                   onChange={this.fullfillSettingData}/>
+          </div>
+
         </div>
-        <div className={s.inputAll}>
-          CVV: <input name='cvv' value={cvv} type='text' className={s.inputCVV}
-                      onChange={this.fullfillSettingData}/>
+        <div >
+          CVV:
+          <div>
+            <input name='cvv' value={cvv} type='text'
+                   onChange={this.fullfillSettingData}/>
+          </div>
         </div>
-        <div className={s.inputAll}>
-          Expiration Date: <input name='expirationDate' value={expirationDate} type='text'
-                                  onChange={this.fullfillSettingData}/>
+        <div >
+          Expiration Date:
+          <div>
+            <input name='expirationDate' value={expirationDate} type='text'
+                   onChange={this.fullfillSettingData}/>
+          </div>
+
         </div>
-        <div className={s.inputAll}>
-          Full Name: <input name='fullName' value={fullName} type='text' className={s.inputFullName}
-                            onChange={this.fullfillSettingData}/>
+        <div >
+          Full Name:
+          <div>
+            <input name='fullName' value={fullName} type='text'
+                   onChange={this.fullfillSettingData}/>
+          </div>
         </div>
         <div>
-          <button onClick={this.saveSettings}>Save</button>
+          <button className='settingsSaveButton' onClick={this.saveSettings}>Save</button>
         </div>
       </div>
     )

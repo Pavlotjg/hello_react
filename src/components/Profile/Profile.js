@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './Profile.module.css'
+import '../../App.scss';
 import {getCurrentUser} from '../../api/User';
 import {getDataBase, saveDataBase} from '../../api/database';
 
@@ -58,41 +58,61 @@ class Profile extends React.Component {
     const {name, lastName, phone, email, profileType} = this.state.user || {};
 
     return (
-      <div className={s.mainWindowProfile}>
-        <div className={s.inputAll}>
-          First Name: <input name="name" type="text" value={name} className={s.inputFirstName}
-                             onChange={this.fullfillStateMethodName}/>
+      <div className='main-Grid-Profile'>
+        <div className='profile-back'>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/1200px-Star_Wars_Logo.svg.png" alt=""/>
         </div>
-        <div className={s.inputAll}>
-          Last Name: <input name="lastName" type="text" value={lastName} className={s.inputLastName}
-                            onChange={this.fullfillStateMethodName}/>
+        <div className='profile-back hiddenTabletDiv'>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/1200px-Star_Wars_Logo.svg.png" alt=""/>
         </div>
-        <div className={s.inputAll}>
-          E-mail:<input name="email" type="email" value={email} className={s.inputEmail}
-                        onChange={this.fullfillStateMethodName}/>
+        <div className='regDiv'>Quick Registration:</div>
+        <div >
+          First Name:
+          <div>
+            <input name="name" type="text" value={name}
+                   onChange={this.fullfillStateMethodName}/>
+          </div>
         </div>
-        <div className={s.inputAll}>
-          Tel: <input name="phone" type="tel" value={phone} className={s.inputTel}
-                      onChange={this.fullfillStateMethodName}/>
+        <div >
+          Last Name:
+          <div>
+            <input name="lastName" type="text" value={lastName}
+                   onChange={this.fullfillStateMethodName}/>
+          </div>
+        </div>
+        <div >
+          E-mail:
+          <div>
+            <input name="email" type="email" value={email}
+                   onChange={this.fullfillStateMethodName}/>
+          </div>
+        </div>
+        <div >
+          Tel:
+          <div>
+            <input name="phone" type="tel" value={phone}
+                   onChange={this.fullfillStateMethodName}/>
+          </div>
         </div>
         <br/>
-        <div>
-          Тип профілю:
-          <div>
-            a) <input type="radio" name="profileType"
+        <div >
+          Please Choose Your Profile Type:
+          <div className='profileTypeDiv'>
+            a) Personal
+            <input type="radio" name="profileType"
                       onChange={this.fullfillStateMethodName}
                       checked={profileType === 'personal'}
                       value="personal" />
-            Personal
-            <br/>
-            b) <input type="radio" name="profileType"
+          </div>
+          <div className='profileTypeDiv'>
+            b) Business
+            <input type="radio" name="profileType"
                       onChange={this.fullfillStateMethodName}
                       checked={profileType === 'busInAss'}
                       value="busInAss" />
-            Business
           </div>
         </div>
-        <button onClick={this.saveProfile}>Save</button>
+        <button className='profileSaveButton' onClick={this.saveProfile}>Save</button>
       </div>
     )
   }
