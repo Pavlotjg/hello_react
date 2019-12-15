@@ -11,8 +11,10 @@
 
 */
 
+const host = '192.168.0.106';
+
 export function getDataBase() {
-  let result = fetch('http://localhost:3110/user', {})
+  let result = fetch(`http://${host}:3110/user`, {})
     .then(response => {
       return response.json()
     });
@@ -20,7 +22,7 @@ export function getDataBase() {
 }
 
 export function saveDataBase(user) {
-  return fetch('http://localhost:3110/user', {
+  return fetch(`http://${host}:3110/user`, {
     method: 'PUT',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(user)
@@ -28,7 +30,7 @@ export function saveDataBase(user) {
 }
 
 export function getCreditData() {
-  let result = fetch('http://localhost:3110/credit-card', {})
+  let result = fetch(`http://${host}:3110/credit-card`, {})
     .then(response => {
       return response.json()
     });
@@ -36,7 +38,7 @@ export function getCreditData() {
 }
 
 export function saveCreditData(creditData) {
-  return fetch('http://localhost:3110/credit-card', {
+  return fetch(`http://${host}:3110/credit-card`, {
     method: 'PUT',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(creditData)
@@ -45,7 +47,7 @@ export function saveCreditData(creditData) {
 
 
 export function createMusicAlbum(musicAlbum) {
-  return fetch('http://localhost:3110/music-albums', {
+  return fetch(`http://${host}:3110/music-albums`, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(musicAlbum)
@@ -53,7 +55,7 @@ export function createMusicAlbum(musicAlbum) {
 }
 
 export function getMusicAlbum() {
-  let result = fetch('http://localhost:3110/music-albums')
+  let result = fetch(`http://${host}:3110/music-albums`)
     .then(response => {
       return response.json()
     });
@@ -62,7 +64,7 @@ export function getMusicAlbum() {
 
 export function saveMusicAlbum(musicAlbum) {
   const {id, title} = musicAlbum || {};
-  return fetch('http://localhost:3110/music-albums/' + id, {
+  return fetch(`http://${host}:3110/music-albums/` + id, {
     method: 'PUT',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
@@ -73,7 +75,7 @@ export function saveMusicAlbum(musicAlbum) {
 
 
 export function deleteMusicAlbum(id) {
-  const result = id ? fetch('http://localhost:3110/music-albums/' + id, {
+  const result = id ? fetch(`http://${host}:3110/music-albums/` + id, {
     method: 'DELETE'
   }) : Promise.resolve();
   return result;
