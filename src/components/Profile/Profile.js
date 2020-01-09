@@ -1,7 +1,6 @@
 import React from 'react';
 import '../../App.scss';
-import {getCurrentUser} from '../../api/User';
-import {getDataBase, saveDataBase} from '../../api/database';
+import {getUser, saveUser} from '../../api/api';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -42,7 +41,7 @@ class Profile extends React.Component {
     setTimeout(() => {
       promise.then(
         result => {
-          saveDataBase(result);
+          saveUser(result);
           console.log('Data was saved')
         });
       promise.catch(

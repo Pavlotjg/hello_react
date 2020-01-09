@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../App.scss';
-import {createMusicAlbum, deleteMusicAlbum, saveMusicAlbum} from "../../api/database";
+import {createMusicAlbum, deleteMusicAlbum, saveMusicAlbum} from "../../api/api";
 
 
 class Music extends React.Component {

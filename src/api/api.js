@@ -1,19 +1,6 @@
-/*
-  Example of DataBase
+const host = '192.168.0.107';
 
-  {
-    user: {
-      balance: 1000,
-      name: 'Vasyl',
-      lastName: 'Test'
-    }
-  }
-
-*/
-
-const host = '192.168.0.106';
-
-export function getDataBase() {
+export function getUser() {
   let result = fetch(`http://${host}:3110/user`, {})
     .then(response => {
       return response.json()
@@ -21,7 +8,7 @@ export function getDataBase() {
   return result;
 }
 
-export function saveDataBase(user) {
+export function saveUser(user) {
   return fetch(`http://${host}:3110/user`, {
     method: 'PUT',
     headers: {'Content-Type': 'application/json'},

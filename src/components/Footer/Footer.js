@@ -1,7 +1,6 @@
 import React from 'react';
 import '../../App.scss';
 
-
 const Footer = () => {
   return (
     <div className='main-Grid-Footer'>

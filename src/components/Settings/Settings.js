@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../App.scss';
-import {saveCreditData} from "../../api/database";
+import {saveCreditData} from "../../api/api";
 
 class Settings extends React.Component {
   constructor(props) {
