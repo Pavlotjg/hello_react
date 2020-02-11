@@ -17,6 +17,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+
     getUser().then(user => {
       this.setState({
         user: user
@@ -32,10 +33,16 @@ class App extends React.Component {
         musicAlbums: musicAlbums
       });
     });
+    this.updateAlbums = this.updateAlbums.bind(this)
+  }
+
+  updateAlbums(newAlbums){
+    this.setState({
+      musicAlbums: newAlbums
+    })
   }
 
   render() {
-
     return (
       <Provider store={store}>
         <BrowserRouter>
@@ -48,7 +55,7 @@ class App extends React.Component {
                   <Route path='/home' render={(props) => <Home {...props} user={this.state.user}/>}/>
                   <Route path='/profile' render={(props) => <Profile {...props} user={this.state.user}/>}/>
                   <Route path='/settings' render={(props) => <Settings {...props} creditCard={this.state.creditCard}/>}/>
-                  <Route path='/music' render={(props) => <Music {...props} musicAlbums={this.state.musicAlbums}/>}/>
+                  <Route path='/music' render={(props) => <Music {...props} musicAlbums={this.state.musicAlbums} updateAlbums={this.updateAlbums}/>}/>
                   <Route path='/reduxpage' render={(props) => <ReduxPage {...props} />}/>
                 </div>
               </Switch>

@@ -49,16 +49,15 @@ class Music extends React.Component {
   }
 
   deleteAlbum(event) {
+    const { updateAlbums } = this.props;
     const {musicAlbums} = this.state;
     const {name} = event.target;
     const { id } = musicAlbums[name] || {};
     deleteMusicAlbum(id)
       .then(
         () => {
-          musicAlbums.splice(name, 1);
-          this.setState({
-            musicAlbums: musicAlbums
-          });
+          musicAlbums.splice(name,1);
+          updateAlbums([...musicAlbums])
         });
   }
 
@@ -103,11 +102,9 @@ class Music extends React.Component {
                  frameBorder='0' >
           </iframe>
         </div>
-
       </div>
     )
   }
 }
-
 
 export default Music;
