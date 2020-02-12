@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../App.scss';
 import {createMusicAlbum, deleteMusicAlbum, saveMusicAlbum} from "../../api/api";
+import {connect} from 'react-redux';
 
 
 class Music extends React.Component {
@@ -17,10 +18,15 @@ class Music extends React.Component {
     this.addAlbum = this.addAlbum.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      musicAlbums: nextProps.musicAlbums
-    });
+  static getDerivedStateFromProps(newProps, state) {
+    if(state.initialMusicAlbums !== newProps.musicAlbums) {
+      return {
+        initialMusicAlbums: newProps.musicAlbums,
+        musicAlbums: [...newProps.musicAlbums]
+      };
+    }
+
+    return null;
   }
 
   fullfillState(event) {
@@ -32,42 +38,49 @@ class Music extends React.Component {
     };
     musicAlbums.splice(name, 1, newAlbum);
     this.setState({
-      musicAlbums: musicAlbums
+      musicAlbums: [...musicAlbums]
     });
   }
 
   saveNewAlbumsMethod() {
+    const {dispatch} = this.props;
     const {musicAlbums} = this.state;
     musicAlbums.forEach((elem, index) => {
-      elem.id ? saveMusicAlbum(elem): createMusicAlbum(elem).then(
+      elem.id ? saveMusicAlbum(elem) : createMusicAlbum(elem).then(
         album => {
           musicAlbums[index].id = album.id;
-          this.setState({musicAlbums: musicAlbums})
+          dispatch({
+            type: 'UPDATE_MUSIC_ALBUMS',
+            payload: [...musicAlbums]
+          })
         }
       )
     });
   }
 
   deleteAlbum(event) {
-    const { updateAlbums } = this.props;
+    const {dispatch} = this.props;
     const {musicAlbums} = this.state;
     const {name} = event.target;
-    const { id } = musicAlbums[name] || {};
+    const {id} = musicAlbums[name] || {};
     deleteMusicAlbum(id)
       .then(
         () => {
-          musicAlbums.splice(name,1);
-          updateAlbums([...musicAlbums])
+          musicAlbums.splice(name, 1);
+          dispatch({
+            type: 'UPDATE_MUSIC_ALBUMS',
+            payload: [...musicAlbums]
+          })
         });
   }
 
-  addAlbum(event){
-    const { musicAlbums } = this.state;
-    const {value, name} = event.target;
-
+  addAlbum() {
+    const {dispatch} = this.props;
+    const {musicAlbums} = this.state;
     musicAlbums.push({id: '', title: ''});
-    this.setState({
-      musicAlbums: musicAlbums
+    dispatch({
+      type: 'UPDATE_MUSIC_ALBUMS',
+      payload: [...musicAlbums]
     })
   }
 
@@ -78,7 +91,7 @@ class Music extends React.Component {
       return (
         <div key={index}>
           Album: <input type="text" name={index} value={elem.title} onChange={this.fullfillState}/>
-          <button  className='musicDeleteButton' name={index} onClick={this.deleteAlbum}>X</button>
+          <button className='musicDeleteButton' name={index} onClick={this.deleteAlbum}>X</button>
         </div>
       )
     });
@@ -86,20 +99,22 @@ class Music extends React.Component {
   }
 
   render() {
+    /*console.log(this);
+    debugger;*/
     return (
       <div className='main-Grid-Music'>
-        <div >
+        <div>
           {this.renderInputs()}
         </div>
         <div>
-          <button  className='musicSaveButton' onClick={this.addAlbum}>Add+</button>
+          <button className='musicSaveButton' onClick={this.addAlbum}>Add+</button>
         </div>
         <div>
-          <button  className='musicSaveButton' onClick={this.saveNewAlbumsMethod}>Save</button>
+          <button className='musicSaveButton' onClick={this.saveNewAlbumsMethod}>Save</button>
         </div>
         <div className='musicVideoContainer'>
           <iframe src="https://www.youtube.com/embed/BCPiBWrIaSI" allowFullScreen='allowFullScreen'
-                 frameBorder='0' >
+                  frameBorder='0'>
           </iframe>
         </div>
       </div>
@@ -107,4 +122,17 @@ class Music extends React.Component {
   }
 }
 
-export default Music;
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatch: dispatch
+  }
+}
+
+function mapStateToProps(state) {
+  return {
+    musicAlbums: state.musicAlbums
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Music);
+

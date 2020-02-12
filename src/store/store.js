@@ -1,7 +1,7 @@
-import { createStore} from "redux";
-import { myReducer } from '../components/ReduxPage/Actions and reducers/reducers'
+import {createStore} from "redux";
+import {myReducer} from '../components/ReduxPage/Actions and reducers/reducers'
 
- export const initialState = {
+export const initialState = {
   x: 10,
   name: 'Darth',
   lastName: 'Vader',
@@ -9,11 +9,16 @@ import { myReducer } from '../components/ReduxPage/Actions and reducers/reducers
     red: '1',
     blue: '2',
     green: '3'
-  }
+  },
+  musicAlbums: []
 };
 
 
 export const store = createStore(myReducer);
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+
 
 function reducer(state = initialState, action) {
   switch (action.type) {

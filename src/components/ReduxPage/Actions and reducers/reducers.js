@@ -27,6 +27,13 @@ export function myReducer(state = initialState, action) {
           green: action.payload
         }
       };
+
+    case 'UPDATE_MUSIC_ALBUMS' :
+      return {
+        ...state,
+        musicAlbums: action.payload
+      };
+
     default:
       return state;
   }
