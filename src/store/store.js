@@ -13,20 +13,4 @@ export const initialState = {
   musicAlbums: []
 };
 
-
 export const store = createStore(myReducer);
-
-
-///////////////////////////////////////////////////////////////////////////////////////
-
-
-function reducer(state = initialState, action) {
-  switch (action.type) {
-    case 'CHANGE_FIRST_NAME':
-      return {...state, name: action.payload};
-    case 'CHANGE_LAST_NAME':
-      return {...state, lastName: action.payload};
-    default:
-      return state;
-  }
-}

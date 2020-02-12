@@ -99,8 +99,6 @@ class Music extends React.Component {
   }
 
   render() {
-    /*console.log(this);
-    debugger;*/
     return (
       <div className='main-Grid-Music'>
         <div>

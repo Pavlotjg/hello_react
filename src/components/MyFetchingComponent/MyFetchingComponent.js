@@ -2,9 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getMusicAlbum} from "../../api/api";
 
-
 class MyFetchingComponent extends Component {
-
 
   componentDidMount() {
     getMusicAlbum().then(musicAlbums => {
@@ -15,7 +13,6 @@ class MyFetchingComponent extends Component {
       });
     });
   }
-
 
   render() {
     return (
@@ -32,10 +29,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-
-
 export default connect(null, mapDispatchToProps)(MyFetchingComponent);
-
-
-
-
