@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../App.scss';
+import {connect} from 'react-redux';
 
 class Header extends React.Component {
 
@@ -27,4 +28,10 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+function mapStateToProps(state) {
+  return{
+    user:state.user
+  }
+}
+
+export default connect(mapStateToProps)(Header);

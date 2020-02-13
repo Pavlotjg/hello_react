@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
 import Profile from "./components/Profile/Profile";
 import Settings from "./components/Settings/Settings";
-import {getCreditData, getUser} from "./api/api";
+import {getCreditData} from "./api/api";
 import Music from "./components/Music/Music";
 import {Provider} from 'react-redux';
 import {store} from './store/store';
@@ -19,11 +19,7 @@ class App extends React.Component {
     super(props);
     this.state = {};
 
-    getUser().then(user => {
-      this.setState({
-        user: user
-      });
-    });
+
     getCreditData().then(creditCard => {
       this.setState({
         creditCard: creditCard
@@ -38,13 +34,13 @@ class App extends React.Component {
         <BrowserRouter>
           <MyFetchingComponent>
             <div className='main-Grid-Container'>
-              <Header user={this.state.user}/>
+              <Header />
               <Navbar/>
               <div className='grid-Internal-Container'>
                 <Switch>
                   <div>
-                    <Route path='/home' render={(props) => <Home {...props} user={this.state.user}/>}/>
-                    <Route path='/profile' render={(props) => <Profile {...props} user={this.state.user}/>}/>
+                    <Route path='/home' render={(props) => <Home {...props} />}/>
+                    <Route path='/profile' render={(props) => <Profile {...props} />}/>
                     <Route path='/settings' render={(props) => <Settings {...props} creditCard={this.state.creditCard}/>}/>
                     <Route path='/music' render={(props) => <Music {...props} />}/>
                     <Route path='/reduxpage' render={(props) => <ReduxPage {...props} />}/>

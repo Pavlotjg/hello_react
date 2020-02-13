@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {getMusicAlbum} from "../../api/api";
+import {getMusicAlbum, getUser} from "../../api/api";
 
 class MyFetchingComponent extends Component {
 
@@ -12,6 +12,15 @@ class MyFetchingComponent extends Component {
         payload: [...musicAlbums]
       });
     });
+
+    getUser().then(user => {
+      const { dispatch } = this.props;
+      dispatch({
+        type: 'UPDATE_USER',
+        payload: {...user}
+      })
+    });
+
   }
 
   render() {
